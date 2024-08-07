@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular delta e raiz de Bhaskara</title>
+
+    <link rel="stylesheet" href="desafios-style.css">
+</head>
+
+<body>
+    <h1>Calcular Bhaskara</h1>
+    <img src="imagens_e_arquivos/formuladebhaskara.webp" alt="">
+    <button onclick="bhaskara()">Calcular raizes de Bhaskara</button>
+    <section id="calculo">
+        <p>O resultado vai aparecer aqui...</p>
+    </section>
+
+    <script>
+        function bhaskara() {
+            let a = Number(window.prompt('Qual é o número correspondente a letra "a"?'))
+            let b = Number(window.prompt(`Qual é o número correspondente a letra "b"?`))
+            let c = Number(window.prompt(`Qual é o número correspondente a letra "c"?`))
+           
+            delta = (b*b)-(4*a*c)
+            raizdelta = Math.sqrt(delta)
+            negativo = (-b - raizdelta) / (2*a)
+            positivo = (-b + raizdelta) / (2*a)
+
+            if (delta < 0) {
+                let res = document.getElementById('calculo')
+                res.innerHTML = `<p>O delta de bhaskara é <mark>${delta}</mark>, sendo um número negativo, não é possível calcular as raízes de bhaskara</p>`
+            } else {
+                let res = document.getElementById('calculo')
+                res.innerHTML = `<p>O delta de bhaskara é <mark>${delta}</mark>.</p>`
+                res.innerHTML += `<p>As raízes de bhaskara são <mark>x'= ${positivo}</mark> e <mark>x''= ${negativo}</mark>.</p>`
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
