@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folha de Pagamento</title>
+  <link rel="stylesheet" href="FolhaDePagamento2.css">
+</head>
+<body>
+  <div class="container">
+    <img src="channel.png" alt="Logo">
+    <h1>Folha de Pagamento</h1>
+    <form id="paymentForm">
+      <input type="text" id="name" placeholder="Digite seu nome" required>
+      <input type="number" id="salary" placeholder="Digite o salário bruto" required>
+      <button type="submit">Adicionar</button>
+    </form>
+    <table id="recordTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Salário Bruto (R$)</th>
+          <th>Imposto (R$)</th>
+          <th>Salário Líquido (R$)</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <script src="FolhaDePagamento2.js"></script>
+</body>
+</html>
