@@ -24,13 +24,6 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
   
     const netSalary = salary - tax;
   
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = `
-      <p><strong>Nome:</strong> ${name}</p>
-      <p><strong>Salário Bruto:</strong> R$ ${salary.toFixed(2)}</p>
-      <p><strong>Imposto:</strong> R$ ${tax.toFixed(2)}</p>
-      <p><strong>Salário Líquido:</strong> R$ ${netSalary.toFixed(2)}</p>
-    `;
     resultDiv.style.display = 'block';
   
     const tableBody = document.querySelector('#recordTable tbody');
