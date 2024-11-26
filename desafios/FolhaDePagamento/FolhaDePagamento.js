@@ -34,5 +34,8 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
       <p><strong>Salário Líquido:</strong> R$ ${netSalary.toFixed(2)}</p>
     `;
     resultDiv.style.display = 'block';
+
+    document.getElementById('name').value = '';
+    document.getElementById('salary').value = '';
   });
   
