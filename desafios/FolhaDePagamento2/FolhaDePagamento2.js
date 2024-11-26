@@ -1,8 +1,11 @@
 document.getElementById('paymentForm').addEventListener('submit', function(event) {
     event.preventDefault();
-  
+
     const name = document.getElementById('name').value;
-    const salary = parseFloat(document.getElementById('salary').value);
+    let salaryInput = document.getElementById('salary').value;
+
+    salaryInput = salaryInput.replace(/\./g, '').replace(',', '.');
+    const salary = parseFloat(salaryInput);
   
     if (isNaN(salary) || salary <= 0) {
       alert('Por favor, insira um salário bruto válido.');
