@@ -1,43 +1,51 @@
 document.getElementById('paymentForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    let salaryInput = document.getElementById('salary').value;
+  const name = document.getElementById('name').value;
+  const salary = parseFloat(document.getElementById('salary').value);
 
-    salaryInput = salaryInput.replace(/\./g, '').replace(',', '.');
-    const salary = parseFloat(salaryInput);
-  
-    if (isNaN(salary) || salary <= 0) {
-      alert('Por favor, insira um salário bruto válido.');
-      return;
-    }
+  if (isNaN(salary) || salary <= 0) {
+    alert('Por favor, insira um salário bruto válido.');
+    return;
+  }
 
-    let tax = 0;
-    if (salary >= 5000) {
-      tax = salary * 0.175;
-    } else if (salary >= 4000) {
-      tax = salary * 0.12;
-    } else if (salary >= 3000) {
-      tax = salary * 0.075;
-    } else if (salary >= 1800) {
-        tax = salary * 0.035;
-    } else {
-        tax = 0
-    }
-  
-    const netSalary = salary - tax;
+  let tax = 0;
+  if (salary >= 5000.00) {
+    tax = salary * 0.175;
+  } else if (salary >= 4000.00) {
+    tax = salary * 0.12;
+  } else if (salary >= 3000.00) {
+    tax = salary * 0.075;
+  } else if (salary >= 1800.00) {
+      tax = salary * 0.035;
+  } else {
+      tax = 0
+  }
 
-    const tableBody = document.querySelector('#recordTable tbody');
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-      <td>${name}</td>
-      <td>R$ ${salary.toFixed(2)}</td>
-      <td>R$ ${tax.toFixed(2)}</td>
-      <td>R$ ${netSalary.toFixed(2)}</td>
-    `;
-    tableBody.appendChild(newRow);
-  
-    document.getElementById('name').value = '';
-    document.getElementById('salary').value = '';
-  });
-  
+  const netSalary = salary - tax;
+
+  // Exibir o resultado
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = `
+    <p><strong>Nome:</strong> ${name}</p>
+    <p><strong>Salário Bruto:</strong> R$ ${salary.toFixed(2)}</p>
+    <p><strong>Imposto:</strong> R$ ${tax.toFixed(2)}</p>
+    <p><strong>Salário Líquido:</strong> R$ ${netSalary.toFixed(2)}</p>
+  `;
+  resultDiv.style.display = 'block';
+
+  // Adicionar os dados na tabela
+  const tableBody = document.querySelector('#recordTable tbody');
+  const newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>${name}</td>
+    <td>R$ ${salary.toFixed(2)}</td>
+    <td>R$ ${tax.toFixed(2)}</td>
+    <td>R$ ${netSalary.toFixed(2)}</td>
+  `;
+  tableBody.appendChild(newRow);
+
+  // Limpar o formulário
+  document.getElementById('name').value = '';
+  document.getElementById('salary').value = '';
+});
