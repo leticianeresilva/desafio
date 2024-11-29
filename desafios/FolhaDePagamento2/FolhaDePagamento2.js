@@ -24,17 +24,6 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
 
   const netSalary = salary - tax;
 
-  // Exibir o resultado
-  const resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = `
-    <p><strong>Nome:</strong> ${name}</p>
-    <p><strong>Salário Bruto:</strong> R$ ${salary.toFixed(2)}</p>
-    <p><strong>Imposto:</strong> R$ ${tax.toFixed(2)}</p>
-    <p><strong>Salário Líquido:</strong> R$ ${netSalary.toFixed(2)}</p>
-  `;
-  resultDiv.style.display = 'block';
-
-  // Adicionar os dados na tabela
   const tableBody = document.querySelector('#recordTable tbody');
   const newRow = document.createElement('tr');
   newRow.innerHTML = `
@@ -45,7 +34,6 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
   `;
   tableBody.appendChild(newRow);
 
-  // Limpar o formulário
   document.getElementById('name').value = '';
   document.getElementById('salary').value = '';
 });
