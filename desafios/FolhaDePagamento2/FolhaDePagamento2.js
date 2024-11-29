@@ -4,7 +4,7 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
   const name = document.getElementById('name').value;
   const salary = parseFloat(document.getElementById('salary').value);
 
-  if (isNaN(salary) || salary <= 0) {
+  if (salary <= 0) {
     alert('Por favor, insira um salário bruto válido.');
     return;
   }
